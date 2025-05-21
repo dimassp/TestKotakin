@@ -3,11 +3,13 @@ import { Head, Link } from '@inertiajs/vue3';
 </script>
 
 <template>
+    <h1></h1>
     <Head title="Welcome">
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
-    <div class="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] dark:bg-[#0a0a0a] lg:justify-center lg:p-8">
+    <h1 class="bg-green-200">Hello world</h1>
+    <!-- <div class="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] dark:bg-[#0a0a0a] lg:justify-center lg:p-8">
         <header class="not-has-[nav]:hidden mb-6 w-full max-w-[335px] text-sm lg:max-w-4xl">
             <nav class="flex items-center justify-end gap-4">
                 <Link
@@ -17,6 +19,14 @@ import { Head, Link } from '@inertiajs/vue3';
                 >
                     Dashboard
                 </Link>
+                <div v-if="$page.props.auth.user">
+                    <h1>
+                        Welcome , {{ $page.props.auth.user.name }}
+                    </h1>
+                    <h1>
+                        Name: {{ $page.props.name }}
+                    </h1>
+                </div>
                 <template v-else>
                     <Link
                         :href="route('login')"
@@ -783,5 +793,5 @@ import { Head, Link } from '@inertiajs/vue3';
             </main>
         </div>
         <div class="h-14.5 hidden lg:block"></div>
-    </div>
+    </div> -->
 </template>
