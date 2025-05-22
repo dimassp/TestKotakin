@@ -28,8 +28,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 const page = usePage<SharedData>();
 const user = page.props.auth.user as User;
 
-console.log("CHECK Page data: ", page);
-
 const form = useForm({
     name: user.name,
     email: user.email,

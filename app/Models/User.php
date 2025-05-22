@@ -12,6 +12,10 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -44,5 +48,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function checkAccess($check_access_control)
+    {
+        if ($this->role) {
+            return $this->role->checkAccess($check_access_control);
+        } else {
+            return false;
+        }
     }
 }

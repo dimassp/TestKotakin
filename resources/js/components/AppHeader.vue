@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const page = usePage();
 const auth = computed(() => page.props.auth);
+console.log("Check Get user from AppHeader: ", auth.user)
 
 const isCurrentRoute = computed(() => (url: string) => page.url === url);
 
